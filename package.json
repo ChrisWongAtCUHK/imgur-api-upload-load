@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --watch public server.js",
+    "dev": "nodemon --watch server.js --watch public server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Chris Wong <wc38.wong@gmail.com>",

@@ -5,6 +5,8 @@ const axios = require('axios');
 
 require('dotenv').config()
 
+const IMGUR_URL = 'https://api.imgur.com/3/';
+
 // // Serve static files....
 app.use(express.static(__dirname + '/public'));
 
@@ -14,12 +16,12 @@ app.get('/', function (req, res) {
 });
 
 app.get('/images', function (req, res) {
-  const url = 'https://api.imgur.com/3/album/' + process.env.album + '/images';
+  const url = IMGUR_URL + 'album/' + process.env.ALBUM + '/images';
   axios
     .get(url, {
         headers: { 
           'content-type': 'application/json',
-          'Authorization': 'Bearer ' + process.env.token
+          'Authorization': 'Bearer ' + process.env.TOKEN
         } 
       }
     )
@@ -27,7 +29,12 @@ app.get('/images', function (req, res) {
         res.setHeader('Content-Type', 'application/json');
         res.end(JSON.stringify(response.data));
       }
-    );
+    )
+    .catch(error => {
+        console.log(error);
+
+        res.end(JSON.stringify({ 'message': 'There is an error.'}));
+    });
 });
 
 
