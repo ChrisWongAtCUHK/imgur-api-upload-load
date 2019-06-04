@@ -54,6 +54,9 @@ app.post('/upload', (req, res) => {
 curl --location --request POST "${url}" \
   --header "Authorization: Bearer ${process.env.TOKEN}" \
   --form "image=@${files.image.path}"\
+  --form "name=${fields.name}"\
+  --form "title=${fields.title}"\
+  --form "description=${fields.description}"\
   --form "album=${process.env.ALBUM}"
 `;  
         let result = runCmd(cmd);
