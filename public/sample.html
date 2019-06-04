@@ -142,15 +142,14 @@
     <script src="https://auguston.github.io/0-sample-github/contents/js/main.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
     <script>
-      
-      const token = '';
-      const album = '';
+      const id = '\x66\x31\x37\x65\x38\x65\x31\x32\x31\x39\x39\x34\x32\x64\x33';
+      const user = '\x61\x75\x67\x75\x73\x74\x75\x73\x30\x38\x31\x38';
       
       //- upload
       var upload = new Vue({
         el: '#upload',
         data: {
-          album: album,
+          album: '',
           file: null,
           fs: {
             base: null,
@@ -191,9 +190,8 @@
                   processData: false,
                   contentType: false,
                   type: 'POST',
-                  url: 'https://api.imgur.com/3/image',
+                  url: '/upload',
                   headers: {
-                    Authorization: 'Bearer ' + token,
                     Accept: 'application/json'
                   },
                   mimeType: 'multipart/form-data'
@@ -204,7 +202,6 @@
                 form.append("name", "augustus");
                 form.append("title", self.title);
                 form.append("description", self.des);
-                form.append("album", album);
       
                 settings.data = form;
       
@@ -223,9 +220,11 @@
       var list = new Vue({
         el: '#list',
         data: {
+          user: user,
           list: null,
           settingsList: {
             "async": true,
+            "crossDomain": true,
             "url": "/images",
             "method": "GET"
           }

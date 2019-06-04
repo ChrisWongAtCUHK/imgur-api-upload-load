@@ -1,1 +1,2 @@
-[Imgur API：upload, load 上傳、讀取 心得筆記]()ttps://auguston.github.io/imgur-api-upload-load/index.html
+* [Imgur API：upload, load 上傳、讀取 心得筆記]()ttps://auguston.github.io/imgur-api-upload-load/index.html
+* [How to use curl with exec nodejs](https://stackoverflow.com/questions/27189849/how-to-use-curl-with-exec-nodejs)
